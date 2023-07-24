@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function(){
     const searchBar = document.querySelector('.searchBar');
     const searchInput = document.getElementById('searchInput');
     const searchClose = document.getElementById('searchClose');
+    const upvoteButtons = document.querySelectorAll('.upvote-btn');
+    const downvoteButtons = document.querySelectorAll('.downvote-btn');
   
     for(var i=0; i<allButtons.length; i++) {
       allButtons[i].addEventListener('click', function() {
@@ -20,5 +22,34 @@ document.addEventListener('DOMContentLoaded', function(){
       this.setAttribute('aria-expanded', 'false');
     });
   
+    upvoteButtons.forEach(button => {
+      button.addEventListener('click', async () => {
+        const postId = button.dataset.postid;
+        const response = await fetch(`/post/${postId}/upvote`, { method: 'POST' });
+        if (response.ok) {
+          const data = await response.json();
+          const upvoteCount = data.upvotes;
+          updateVoteCountUp(button, upvoteCount);
+        }
+      });
+    });
   
-  });
+    downvoteButtons.forEach(button => {
+      button.addEventListener('click', async () => {
+        const postId = button.dataset.postid;
+        const response = await fetch(`/post/${postId}/downvote`, { method: 'POST' });
+        if (response.ok) {
+          const data = await response.json();
+          const downvoteCount = data.downvotes;
+          updateVoteCountDn(button, downvoteCount);
+        }
+      });
+    });
+
+    function updateVoteCountUp(button, count) {
+      button.innerText = `Upvote (${count})`;
+    }
+    function updateVoteCountDn(button, count) {
+      button.innerText = `Downvote (${count})`;
+    }
+});

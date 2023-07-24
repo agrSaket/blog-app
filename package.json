@@ -22,7 +22,8 @@
     "express-session": "^1.17.3",
     "jsonwebtoken": "^9.0.1",
     "method-override": "^3.0.0",
-    "mongoose": "^7.3.4"
+    "mongoose": "^7.3.4",
+    "react-share-social": "^0.1.55"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"

@@ -4,3 +4,26 @@
     <p class="postdate"><%= data.createdAt.toDateString() %></p>
 </div>
 <article class="article artcont"><%= data.body %></article>
+<div class="udflex">
+    <div class="udflexd">
+        <!-- upvote -->
+        <button class="upvote-btn" data-postid="<%= data._id %>">Upvote (<%= data.upvotes %>)</button>
+    </div>
+    <div class="udflexd">
+        <!-- downvote -->
+        <button class="downvote-btn" data-postid="<%= data._id %>">Downvote (<%= data.downvotes %>)</button>
+    </div>
+    <div>
+        <!-- share -->
+        <a href="https://web.whatsapp.com/send?text=<%= encodeURIComponent(data.title) %> - <%= encodeURIComponent(locals.originalUrl) %>" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://www.linkedin.com/shareArticle?url=<%= encodeURIComponent(locals.originalUrl) %>&title=<%= encodeURIComponent(data.title) %>" target="_blank">
+            linkedin
+        </a>
+        <a href="mailto:?subject=<%= encodeURIComponent(data.title) %>&body=<%= encodeURIComponent(locals.originalUrl) %>">
+            email
+        </a>
+        
+    </div>
+</div>

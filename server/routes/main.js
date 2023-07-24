@@ -184,5 +184,63 @@ router.get('/contact', (req, res) => {
 
 // insertPostData();
 
+router.post('/post/:id/upvote', async (req, res) => {
+  try {
+      const postId = req.params.id;
+      const post = await Post.findById(postId);
+      if (!post) {
+          return res.status(404).json({ message: 'Post not found' });
+      }
+      post.upvotes++;
+      await post.save();
+      res.status(200).json({ message: 'Upvote successful', upvotes: post.upvotes });
+  } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+router.post('/post/:id/downvote', async (req, res) => {
+  try {
+      const postId = req.params.id;
+      const post = await Post.findById(postId);
+      if (!post) {
+          return res.status(404).json({ message: 'Post not found' });
+      }
+      post.downvotes++;
+      await post.save();
+      res.status(200).json({ message: 'Downvote successful', downvotes: post.downvotes });
+  } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+/**
+ * GET /post/:id
+ * View a single blog post
+ */
+router.get('/post/:id', async (req, res) => {
+  try {
+      let slug = req.params.id;
+
+      const data = await Post.findById({ _id: slug });
+
+      const locals = {
+          title: data.title,
+          description: "Simple Blog created with NodeJs, Express & MongoDb.",
+          // Pass req.originalUrl to the EJS view
+          originalUrl: req.protocol + '://' + req.get('host') + req.originalUrl // Add this line
+      }
+
+      res.render('post', { 
+          locals,
+          data,
+          currentRoute: `/post/${slug}`
+      });
+  } catch (error) {
+      console.log(error);
+  }
+});
 
 module.exports = router;
