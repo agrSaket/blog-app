@@ -1,2 +1,6 @@
-<h1><%= data.title %></h1>
-<article class="article"><%= data.body %></article>
+<h2><mark><%= data.title %></mark></h2>
+<div class="catflex">
+    <p class="catflexp"><%= data.category %></p>
+    <p class="postdate"><%= data.createdAt.toDateString() %></p>
+</div>
+<article class="article artcont"><%= data.body %></article>

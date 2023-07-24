@@ -129,6 +129,7 @@ router.post('/add-post', authMiddleware, async (req, res) => {
         try {
         const newPost = new Post({
             title: req.body.title,
+            category: req.body.category,
             body: req.body.body
         });
 
@@ -175,6 +176,7 @@ router.put('/edit-post/:id', authMiddleware, async (req, res) => {
     try {
         await Post.findByIdAndUpdate(req.params.id, {
         title: req.body.title,
+        category: req.body.category,
         body: req.body.body,
         updatedAt: Date.now()
         });

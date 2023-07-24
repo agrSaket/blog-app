@@ -16,7 +16,7 @@ body {
   font-family: 'Poppins', sans-serif;
   color: var(--black);
   font-size: var(--font-size-base);
-  background-color: #FAF5EE;
+  background-color: #ffffff;
   background-image: url("/img/img-noise-361x370.png");
   margin: 0;
 }
@@ -78,7 +78,7 @@ img {
   max-height: 528px;
   /* height: 300px;
   width: 900px; */
-  filter: drop-shadow(0px 44px 34px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.25));
   overflow: hidden;
   border-radius: var(--border-radius);
   align-content: center;
@@ -192,7 +192,7 @@ img {
 /* Home Article List */
 .articles__heading {
   margin-top: 4rem;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 .article-ul {
@@ -254,8 +254,40 @@ img {
 }
 
 
-.article {
+.article{
   white-space: pre-wrap;
+}
+
+/* .postdate{
+  display: inline-block;
+  text-align:end;
+} */
+
+.catflex{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: -30px;
+  margin-bottom: 25px;
+}
+.catflexp{
+  border: 1px solid black;
+  border-right: 3px solid black;
+  border-bottom: 3px solid black;
+  border-radius: 5px;
+  padding: 5px 10px 5px 10px;
+  background-color: #dcdcdc;
+}
+mark{
+  background-color: #ffd00057;
+  color: #000000;
+}
+.artcont{
+  text-align: justify;
+  padding: 40px;
+  background-color: rgba(166, 166, 166, 0.079);
+  border: 2px solid black;
+  border-radius: 10px;
 }
 
 
