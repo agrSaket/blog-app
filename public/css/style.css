@@ -292,9 +292,45 @@ mark{
 .udflex{
   display: flex;
   flex-direction: row;
-  margin-top: 10px;
+  margin-top: 20px;
   gap: 2rem;
+  vertical-align: middle;
 }
+.udflexd button{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+.udflexd button img{
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+.uds{
+  display: flex;
+  justify-content: space-between;
+}
+.share{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 20px;
+}
+.shareimg{
+  display: flex;
+  flex-direction: row;
+  gap: 7px;
+}
+.shareimg img{
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
 
 /* Footer */
 .footer {
@@ -304,6 +340,18 @@ mark{
   position:relative;
   border-top: 2px solid rgb(0, 0, 0);
   padding-top: 2rem;
+}
+.footer div{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  margin-top: 10px;
+}
+.footer img{
+  width: 30px;
+  height: 30px;
 }
 
 

@@ -47,9 +47,15 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 
     function updateVoteCountUp(button, count) {
-      button.innerText = `Upvote (${count})`;
+      button.innerHTML = ` 
+      <span>
+        <img src="/img/like.png" alt="upvote">
+      </span> ${count}`;
     }
     function updateVoteCountDn(button, count) {
-      button.innerText = `Downvote (${count})`;
+      button.innerHTML = `
+      <span>
+        <img src="/img/unlike.png" alt="downvote">
+      </span> ${count}`;
     }
 });
