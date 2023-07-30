@@ -456,3 +456,35 @@ mark{
     flex-basis: 25%; /* Each item takes up 25% of the row, maximum of 4 items per row */
   }
 }
+
+.catflexep{
+  display: flex;
+  justify-content:space-between;
+  justify-items: center;
+  align-items: center;
+}
+.catflexepp{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 1rem;
+}
+#selecteditem{
+  border: 1px solid rgba(60, 60, 60, 0.67);
+  border-radius: 5px;
+  padding: 0.8rem;
+}
+
+@media screen and (max-width: 840px) {
+  .catflexep{
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+@media screen and (max-width: 420px) {
+  .catflexepp{
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}
