@@ -430,3 +430,29 @@ mark{
 .pagination:hover {
   color: var(--black);
 }
+
+
+/* Category */
+.category{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.category a {
+  display: block;
+  padding: 15px 10px 15px 10px;
+  margin: 5px;
+  background-color: #bababa5e;
+  border: 1px solid rgb(0, 0, 0);
+  border-bottom: 4px solid black;
+  border-right: 4px solid black;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 840px) {
+  .category a {
+    flex-basis: 25%; /* Each item takes up 25% of the row, maximum of 4 items per row */
+  }
+}

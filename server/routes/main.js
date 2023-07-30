@@ -120,6 +120,16 @@ router.post('/search', async (req, res) => {
  * GET /
  * About
 */
+router.get('/categ', (req, res) => {
+  res.render('categ', {
+    currentRoute: '/categ'
+  });
+});
+
+/**
+ * GET /
+ * About
+*/
 router.get('/about', (req, res) => {
   res.render('about', {
     currentRoute: '/about'
