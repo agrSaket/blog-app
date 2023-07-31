@@ -23,6 +23,7 @@ router.get('', async (req, res) => {
 
     const count = await Post.count();
     const nextPage = parseInt(page) + 1;
+    const latestPage = parseInt(page)-1;
     const hasNextPage = nextPage <= Math.ceil(count / perPage);
 
     res.render('index', { 
@@ -30,6 +31,7 @@ router.get('', async (req, res) => {
       data,
       current: page,
       nextPage: hasNextPage ? nextPage : null,
+      latestPage: latestPage,
       currentRoute: '/'
     });
 
