@@ -397,11 +397,12 @@ mark{
 .searchBar {
   visibility: hidden;
   transform: translateY(-100px);
-  background-color: var(--black);
+  /* background-color: var(--gray-light); */
   padding: 4px 0;
   position: absolute;
   left: 0;
   right: 0;
+  cursor: pointer;
 }
 
 
@@ -413,14 +414,17 @@ mark{
 .searchBar input {
   margin: 0;
   border: 0;
+  border: 1px solid black;
 }
 
 #searchClose {
   position: absolute;
   top: 0;
   right: 0;
-  color: var(--gray-light);
+  color: rgb(255, 255, 255);
   padding: 15px;
+  cursor: pointer;
+  background-color: #191919;
 }
 
 
@@ -514,4 +518,15 @@ mark{
   border-bottom: 4px solid black;
   border-right: 4px solid black;
   border-radius: 5px;
+}
+
+.subscribe{
+  padding: 10px 10px 10px 10px;
+  margin-top: 10px;
+  background-color: #bababa5e;
+  border: 1px solid rgb(0, 0, 0);
+  border-bottom: 4px solid black;
+  border-right: 4px solid black;
+  border-radius: 5px;
+  cursor: pointer;
 }
