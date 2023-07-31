@@ -1,0 +1,18 @@
+<!-- categoryPage.ejs -->
+
+<!-- Add the header, search bar, and other common elements if needed -->
+<h2 class="categoryPage"><%= selectedCategory %></h2>
+<section class="articles">
+        <ul class="article-ul">
+        <% data.forEach(post => { %>
+            <li>
+            <a href="/post/<%= post._id %>">
+                <span><%= post.title %></span>
+                <span class="article-list__date"><%= post.createdAt.toDateString() %></span>
+            </a>
+            </li>
+        <% }) %>
+        </ul>
+</section>
+
+<!-- Add the footer and other common elements if needed -->

@@ -439,7 +439,7 @@ mark{
   justify-content: flex-start;
 }
 
-.category a {
+.category a{
   display: block;
   padding: 15px 10px 15px 10px;
   margin: 5px;
@@ -498,4 +498,15 @@ mark{
     flex-direction: column;
     justify-content:center;
   }
+}
+
+.categoryPage{
+  padding: 10px 10px 10px 10px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  background-color: #bababa5e;
+  border: 1px solid rgb(0, 0, 0);
+  border-bottom: 4px solid black;
+  border-right: 4px solid black;
+  border-radius: 5px;
 }

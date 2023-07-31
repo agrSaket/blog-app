@@ -120,13 +120,37 @@ router.post('/search', async (req, res) => {
 
 /**
  * GET /
- * About
+ * Categ
 */
 router.get('/categ', (req, res) => {
   res.render('categ', {
     currentRoute: '/categ'
   });
 });
+// GET /categ
+// router.get('/categ', async (req, res) => {
+//   try {
+//     const selectedCategory = req.query.name;
+//     const data = await Post.find({ category: selectedCategory }).sort({ createdAt: -1 });
+//     res.render('categoryPage', { data });
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
+
+// GET /categoryPage
+router.get('/categoryPage', async (req, res) => {
+  try {
+    const selectedCategory = req.query.name; // Retrieve the selected category from query parameter
+    const data = await Post.find({ category: selectedCategory }).sort({ createdAt: -1 });
+    res.render('categoryPage', { data, selectedCategory,
+      currentRoute: '/categoryPage' }); // Pass the selectedCategory to the template
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+
 
 /**
  * GET /
