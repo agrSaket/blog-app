@@ -172,6 +172,11 @@ img {
   text-decoration: underline;
 }
 
+.header img{
+  width: 70px;
+  height: 70px;
+}
+
 /* Author - HomePage */
 .author {
   padding: 10px 0;

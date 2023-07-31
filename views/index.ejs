@@ -23,17 +23,13 @@
     <div class="olpost">
       <div>
         <% if (nextPage !== null) { %>
-          <a href="/?page=<%= nextPage %>" class="pagination">&lt; Older Posts</a>
+          <a href="/?page=<%= nextPage %>" class="pagination">&lt; Older Blogs</a>
         <% } %>
       </div>
       <div>
         <% if (latestPage !== 0) { %>
-          <a href="/?page=<%= latestPage %>" class="pagination">Latest Posts &gt;</a>
+          <a href="/?page=<%= latestPage %>" class="pagination">Latest Blogs &gt;</a>
         <% } %>
       </div>
     </div>
 </section>
-
-<script>
-  const latestPage = nextPage-1;
-</script>
