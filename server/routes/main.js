@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Post = require('../models/Post');
-
+const Subscriber = require('../models/Subscriber');
 /**
  * GET /
  * HOME
@@ -276,6 +276,32 @@ router.get('/post/:id', async (req, res) => {
       });
   } catch (error) {
       console.log(error);
+  }
+});
+
+router.post('/subscribe', async (req, res) => {
+  try {
+    const { name, email } = req.body;
+
+    // Validate name and email fields
+    if (!name || !email) {
+      return res.status(400).json({ error: 'Name and email are required fields.' });
+    }
+
+    // Check if the email is valid using the regular expression defined in the model
+    if (!email.match(/^\S+@\S+\.\S+$/)) {
+      return res.status(400).json({ error: 'Invalid email address.' });
+    }
+
+    // Create a new subscriber object and save it to the database
+    const subscriber = new Subscriber({ name, email });
+    await subscriber.save();
+
+    // Return success response
+    return res.status(200).json({ message: 'Subscription successful.' });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: 'An error occurred while processing your request.' });
   }
 });
 

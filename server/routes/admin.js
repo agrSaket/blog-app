@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 const Post = require('../models/Post');
 const User = require('../models/User');
+const Subscriber = require('../models/Subscriber');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-
+const nodemailer = require('nodemailer');
 const adminLayout = '../views/layouts/admin';
 const jwtSecret = process.env.JWT_SECRET;
 
@@ -124,6 +125,45 @@ router.get('/add-post', authMiddleware, async (req, res) => {
  * POST /
  * Admin - Create New Post
 */
+const sendEmailToSubscribers = (postContent, subscribers, contentSnippet) => {
+    // Create a Nodemailer transporter
+    const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        port: 587,
+        secure: false,
+        auth: {
+            user: process.env.EMAIL,
+            pass: process.env.PASSWORD,
+        },
+    },
+    {
+        from: 'EnlightenMe <your_email@example.com>',
+    });
+
+    // Send email to all subscribers
+    // Assuming subscribers is an array of objects containing name and email fields
+    subscribers.forEach((subscriber) => {
+        const mailOptions = {
+            to: subscriber.email,
+            subject: 'New Blog Added! ✔',
+            text: `Dear ${subscriber.name},\n\nA new blog has been added!\n\n`,
+            html: `<p><strong>Title: ${postContent.title}</strong>
+                    <br/>
+                    ${contentSnippet}...
+                    <br/><hr/>
+                    <br/><br/>
+                    Regards,\nEnlightenMe</p>`,
+        };
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+            console.error('Error sending email:', error);
+            } else {
+            console.log('Email sent:', info.response);
+            }
+        });
+    });
+};
+
 router.post('/add-post', authMiddleware, async (req, res) => {
     try {
         try {
@@ -134,6 +174,10 @@ router.post('/add-post', authMiddleware, async (req, res) => {
         });
 
         await Post.create(newPost);
+        // const postUrl = `/post/${createdPost._id}`;
+        const contentSnippet = newPost.body.substring(0, 100);
+        const subscribers = await Subscriber.find();
+        sendEmailToSubscribers(newPost, subscribers, contentSnippet);
         res.redirect('/dashboard');
         } catch (error) {
             console.log(error);

@@ -23,6 +23,7 @@
     "jsonwebtoken": "^9.0.1",
     "method-override": "^3.0.0",
     "mongoose": "^7.3.4",
+    "nodemailer": "^6.9.4",
     "react-share-social": "^0.1.55"
   },
   "devDependencies": {

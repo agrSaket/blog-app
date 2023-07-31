@@ -243,7 +243,7 @@ img {
 }
 
 .article-ul li:not(:last-child) {
-  border-bottom: 1px solid var(--gray-light);
+  border-bottom: 1px solid #4848488e;
 }
 
 .article-ul li:hover {

@@ -58,4 +58,35 @@ document.addEventListener('DOMContentLoaded', function(){
         <img src="/img/unlike.png" alt="downvote">
       </span> ${count}`;
     }
+
+    
+    const subscribeForm = document.getElementById('subscribeForm');
+
+    subscribeForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(subscribeForm);
+      const name = formData.get('name');
+      const email = formData.get('email');
+
+      try {
+        const response = await fetch('/subscribe', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ name, email }),
+        });
+
+        if (response.ok) {
+          alert('Thank you for subscribing!');
+          subscribeForm.reset();
+        } else {
+          throw new Error('Something went wrong.');
+        }
+      } catch (error) {
+        console.error(error);
+        alert('Failed to subscribe. Please try again later.');
+      }
+    });
 });
