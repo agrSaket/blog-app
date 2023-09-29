@@ -1,7 +1,7 @@
 
-<img width="20" alt="Enlightenlogo" src="https://github.com/agrSaket/blog-app/assets/134057654/fe8e1174-c35c-4761-a364-853ca85843f2">Enlighten Me
-
-**Enlighten Me** is a dynamic online platform that aims to inspire, educate, and engage readers through a curated collection of blog posts, covering a wide range of topics.
+# <img width="30" alt="Enlightenlogo" src="https://github.com/agrSaket/blog-app/assets/134057654/732b0b68-c0fe-48e8-a5ac-1f72bfe1f53e">Enlighten Me
+**Enlighten Me** is a dynamic online platform that aims to inspire, educate, and engage readers through a curated collection of blog posts, covering a wi
+de range of topics.
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -11,7 +11,7 @@
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
-- [Technologies Used](#technologies_used)
+- [Technologies Used](#technologies-used)
 - [Configuration](#configuration)
 
 ## Introduction
